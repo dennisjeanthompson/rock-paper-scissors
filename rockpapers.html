@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+       
+let humanScore  =0;
+let getComputerScore = 0;
+console.log(`HUman score${humanScore} Computer score${getComputerScore}`)
+function playRound(HumanChoice,ComputerChoice)
+{
+   if( HumanChoice===ComputerChoice)
+   {
+    return "draw"
+   }
+   else if(  HumanChoice==="scissors" && ComputerChoice==="paper")
+   {
+    humanScore++
+    console.log(`HUman score${humanScore} Computer score${getComputerScore}`)
+    return "You win! Scissors beats paper"
+   }
+   else if(  HumanChoice==="rock" && ComputerChoice==="scissors")
+   {
+    humanScore++
+    console.log(`HUman score${humanScore} Computer score${getComputerScore}`)
+    return "You win! Rock beats scissors"
+   }
+   else if(  HumanChoice==="paper" && ComputerChoice==="rock")
+   {
+    humanScore++
+    console.log(`HUman score${humanScore} Computer score${getComputerScore}`)
+    return "You win! Paper beats rock"
+   }
+   else if(  HumanChoice==="scissors" && ComputerChoice==="rock")
+   {
+    getComputerScore++
+    console.log(`HUman score${humanScore} Computer score${getComputerScore}`)
+    return "You loose! Scissors beats rock"
+   }
+   else if(  HumanChoice==="rock" && ComputerChoice==="paper")
+   {
+    getComputerScore++
+    console.log(`HUman score${humanScore} Computer score${getComputerScore}`)
+return "You loose! Rock beats paper"
+   }
+   else if(  HumanChoice==="paper" && ComputerChoice==="scissors") 
+   {
+getComputerScore++
+    console.log(`HUman score${humanScore} Computer score${getComputerScore}`)
+    return "You loose! Paper beats scissors"
+   }
+
+}
+       function  getHumanChoice()
+        {
+            let human = prompt("Human tell  me input")
+            let humanC = human.toLowerCase()
+            return humanC
+          
+        }
+    
+        
+//let human = prompt("Human tell  me input")
+function  getComputerChoice()
+{
+    let computer = Math.floor(Math.random()*3)+ 1 
+    switch( computer)
+    {
+        case 1:
+      return "rock" 
+        break;
+        case 2:
+     return "paper"
+        break;
+        case 3:
+      return "scissors"
+        break;
+    }
+}
+
+function playGame()
+{
+   // const  humanSelection = getHumanChoice()
+   // const computerSelection = getComputerChoice()
+for(let i = 0;i<5;i++)
+{
+    console.log(`Round ${i+1}`)
+  console.log(   playRound(getHumanChoice(),getComputerChoice()))
+    if(humanScore > getComputerScore && i == 4)
+    {
+        console.log("You won the game!")
+        break;
+    }
+    else if(humanScore<getComputerScore && i == 4){
+        console.log("You loose the game!")
+        break;
+    }
+}
+}
+
+
+//console.log(humanSelection)
+//console.log(computerSelection)
+//c/omputerSelection = getComputerChoice()
+//humanSelection = getHumanChoice()
+//console.log(computerSelection)
+//console.log(humanSelection);
+
+playGame()
+    </script>
+</body>
+</html>
